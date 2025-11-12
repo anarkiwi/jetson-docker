@@ -13,8 +13,7 @@ jobs:
         run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
       - name: Change for main
         id: change_version
-        run: if [ "${{ steps.get_version.outputs.VERSION }}" == "main" ]; then echo ::set-output name=VERSION::latest; else echo ::set-output name=VERS
-ION::${{ steps.get_version.outputs.VERSION }}; fi
+        run: if [ "${{ steps.get_version.outputs.VERSION }}" == "main" ]; then echo ::set-output name=VERSION::latest; else echo ::set-output name=VERSION::${{ steps.get_version.outputs.VERSION }}; fi
       - name: checkout pytorch
         run: ./get_pytorch.sh
       - name: Set up QEMU
