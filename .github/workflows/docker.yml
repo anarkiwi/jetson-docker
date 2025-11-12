@@ -1,7 +1,7 @@
 name: docker
 on: [push, pull_request]
 jobs:
-  jetson-pytorch-test:
+  jetson-pytorch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
